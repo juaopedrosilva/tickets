@@ -1,0 +1,98 @@
+body {
+    background-color: #f5f6f8;
+}
+
+/*NAVBAR*/
+header {
+    width: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    border-bottom: 2px solid #EAEDED;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+header nav {
+    padding: 0px 300px;
+}
+
+header img {
+    width: 250px;
+
+}
+
+.navbar form input {
+    border: none;
+    border-bottom: 1px solid #949aa0;
+    width: 300px ;
+}
+.navbar form i {
+    color: gray;
+    font-size: 1rem;
+}
+
+div.wrapper {
+    width: 100%;
+    display: flex;
+    padding: 0 5%;
+    flex-direction: column;
+}
+
+div.container {
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+}
+
+div.columns {
+    display: flex;
+    flex-direction: column;
+    width: 33.33%;
+    margin-top: 30px;
+    height: 80vh;
+    overflow: auto;
+}
+
+div.title {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+div.cards {
+    width: 80%;
+    display: flex;
+    margin: 20px 0px;
+    padding: 20px 10px;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+div.cards:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+span {
+    font-size: 0.9rem;
+}
+
+
+
+/*Prioridades*/
+.low {
+    border-left: 3px solid #2ED47A;
+
+}
+
+.moderate {
+    border-left: 3px solid #FFBB46;
+
+}
+
+.high {
+    border-left: 3px solid #F76858;
+
+}
