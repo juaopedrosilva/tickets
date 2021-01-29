@@ -1,68 +1,56 @@
-const elementListBugs = document.getElementById("list-bugs")
-const elementListCorrection = document.getElementById("list-correction")
-const elementListNews = document.getElementById("list-news")
-const elementListCompleted = document.getElementById("list-completed")
+// Selecionando os locais das informações no HTML
+const elementListBug = document.querySelector('#list-bug')
+const elementListCorrection = document.querySelector('#list-correction')
+const elementListNew = document.querySelector('#list-new')
+const elementListCompleted = document.querySelector('#list-completed')
 
-//console.log(elementListBugs)
+let contentBug = ''
+let contentCorrection = ''
+let contentNew = ''
+let contentCompleted = ''
 
+// Automatizando as informações
+function renderCard(e){
+    return  `
+            <div class="cards moderate">
+                <h4>${e.title}</h4>
+                <p>${e.description}</p>
+                <span>${e.userName}</span>
+            </div>
+           `               
+}
 
 async function getAll(){
-    const response = await fetch('http://192.168.1.108:3000/tickets')
-    const data = await response.json()
-
-    /* CARD COLUMN BUGS */
-    let contentBugs = ''
-    data.filter(element => element.type === 'bug').forEach(element => {
-        contentBugs += `
-        <div class="cards moderate">
-            <h4>${element.title}</h4>
-            <p>${element.description}</p>
-            <span>${element.userName}</span>
-        </div>
-      `
-    })
     
-    elementListBugs.innerHTML += contentBugs
+    const response = await fetch('http://192.168.1.108:3000/tickets')  // Faz a requisição
+    const data = await response.json() // Converte os dados en json
 
-    /* CARD COLUMN CORRECTION */
-    let contentCorrection = ''
-    data.filter(element => element.type === 'correction').forEach(element => {
-        contentCorrection += `
-        <div class="cards moderate">
-            <h4>${element.title}</h4>
-            <p>${element.description}</p>
-            <span>${element.userName}</span>
-        </div>
-      `                                 
-    })
+    // Aqui filtramos e armazenamos em em const___
+    const dataBugs = data.filter(element => element.type === 'bug')
+    const dataCorrections = data.filter(element => element.type === 'correction')
+    const dataNews = data.filter(element => element.type === 'news')
+    const dataCompleteds = data.filter(element => element.type === 'completed')
+    
+    // Aqui mapeamos a filtragem e inserirmos as informações
+    dataBugs.forEach(element => contentBug += renderCard(element))
+    dataCorrections.forEach(element => contentCorrection += renderCard(element))
+    dataNews.forEach(element => contentNew += renderCard(element))
+    dataCompleteds.forEach(element => contentCompleted += renderCard(element))
+   
+    // Aqui inseimos as informações no HTML
+    elementListBug.innerHTML += contentBug
     elementListCorrection.innerHTML += contentCorrection
-
-    /* CARD COLUMN NEWS */
-    let contentNews = ''
-    data.filter(element => element.type === 'news').forEach(element => {
-        contentNews += `
-        <div class="cards moderate">
-            <h4>${element.title}</h4>
-            <p>${element.description}</p>
-            <span>${element.userName}</span>
-        </div>
-        `
-    })
-    elementListNews.innerHTML += contentNews
-
-    /* CARD COLUMN COMPLETED */
-    let contentCompleted = ''
-    data.filter(element => element.type === 'completed').forEach(element => {
-        contentCompleted += `
-        <div class="cards moderate">
-            <h4>${element.title}</h4>
-            <p>${element.description}</p>
-            <span>${element.userName}</span>
-        </div>
-        `
-    })
+    elementListNew.innerHTML += contentNew
     elementListCompleted.innerHTML += contentCompleted
+
+    // Aqui inserimos as quant. cards por column
+    elementListBug.querySelector('div.title > span').innerHTML = dataBugs.length
+    elementListCorrection.querySelector('div.title > span').innerHTML = dataCorrections.length
+    elementListNew.querySelector('div.title > span').innerHTML = dataNews.length
+    elementListCompleted.querySelector('div.title > span').innerHTML = dataCompleteds.length
 }
+
+
 getAll()
 
 
