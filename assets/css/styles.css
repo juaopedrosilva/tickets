@@ -47,7 +47,6 @@ header img {
     cursor: pointer;
 }
 
-
 /*CARTÕES*/
 div.wrapper {
     width: 100%;
@@ -114,21 +113,15 @@ div.cards>span {
     color: #343a40;
 }
 
-
-
-
 /*Prioridades*/
 .low {
     border-left: 3px solid #2ED47A;
-
 }
 
 .moderate {
     border-left: 3px solid #FFBB46;
-
 }
 
 .high {
     border-left: 3px solid #F76858;
-
 }
