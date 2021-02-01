@@ -3,11 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ea346223ba.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="./assets/css/modal.css">
   <title>Tickets</title>
 </head>
 <body>
+  <h2>TESTE MODAL</h2>
+  <button id="myBtn">Clique aqui</button>
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <div class="header">
+        <h2>Registro</h2> 
+        <span class="close">&times;</span>
+      </div>
+      <div class="body">
+        <div class="modo">
+          <span class="urgent">URGENTE</span>
+          <span class="moderate">MODERADO</span>
+          <span class="concluded">CONCLUÍDO</span>
+        </div>
+        <form>
+          <div class="form-group">
+            <label for="Cliente">Cliente:</label>
+            <input type="text" id="Cliente" name="Cliente" >
+          </div>
+          <div class="form-group">
+            <label for="Data">Data:</label>
+            <input type="date" id="Data" name="Data"> 
+          </div>
+          <div class="form-group">
+            <label for="Sistema">Sistema:</label>
+            <select id="country" name="country">
+              <option value="au"></option>
+              <option value="au">Bug</option>
+              <option value="ca">Correção</option>
+              <option value="usa">Novidades</option>
+              <option value="usa">Concluidos</option>
+            </select>  
+          </div>
+          <div class="form-group">
+            <label for="Categoria">Categoria:</label>
+            <select id="country" name="country">
+              <option value="au"></option>
+              <option value="au">Bug</option>
+              <option value="ca">Correção</option>
+              <option value="usa">Novidades</option>
+              <option value="usa">Concluidos</option>
+              </select>  
+          </div>
+          <div class="form-group" style="width: 100%;">
+              <label for="Solicitacao">Solicitação:</label>
+              <input type="text" id="Solicitacao" name="Solicitacao" >
+          </div>
+          <div class="form-group">
+               <label for="Anexos">Anexos:</label>
+               <input type="file" id="Anexos" name="Anexos">
+          </div>
+          <div class="form-group">
+               <label for="Categoria">Status:</label>
+               <select id="country" name="country">
+               <option value="au"></option>
+               <option value="au">Aberto</option>
+               <option value="ca">Fechado</option>
+               <option value="usa">Em Andamento</option>
+               </select>  
+          </div>
+          <div class="form-group" style="width: 100%;">
+               <label for="w3review">Resposta:</label>
+               <textarea id="w3review" name="w3review" rows="4" cols="50" style="resize: none;">
+               </textarea>
+          </div>
+          <div class="form-button">
+            <button type="submit">Enviar</button>
+          </div>
+        </form>
+      </div>
+      <div class="fotter">
+
+      </div>
+    </div>
+  </div>
+  <script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+      
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+      
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "flex";
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
   <script type="text/javascript" src='./assets/js/app.js'></script>
 </body>
 </html>
