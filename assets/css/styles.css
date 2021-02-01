@@ -54,17 +54,36 @@ div.wrapper {
     padding: 0 5%;
     flex-direction: column;
 }
+div.botton {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 30px 0px 0px;
+}
+div.botton > button{
+    background-color: #109cf1;
+    color: #f5f6f8;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    padding: 8px 25px;
+    
+}
+div.botton > button:hover {
+    background-color: #0996ee;
+
+}
 
 div.container {
     display: flex;
     width: 100%;
-    margin-top: 30px;
+   
 }
 
 div.columns {
     display: flex;
     flex-direction: column;
-    width: 33.33%;
+    width: 100%;
     margin-top: 30px;
     height: 80vh;
     overflow: auto;
@@ -75,6 +94,7 @@ div.title {
     display: flex;
     justify-content: space-between;
     width: 80%;
+
 }
 
 div.cards {
@@ -93,7 +113,7 @@ div.cards:hover {
 
 }
 
-div.cards>h4 {
+div.cards > h4 {
     padding-bottom: 10px;
 }
 
@@ -115,13 +135,13 @@ div.cards>span {
 
 /*Prioridades*/
 .low {
-    border-left: 3px solid #2ED47A;
+    border-left: 3px solid #2ed47a;
 }
 
 .moderate {
-    border-left: 3px solid #FFBB46;
+    border-left: 3px solid #ffb946;
 }
 
 .high {
-    border-left: 3px solid #F76858;
+    border-left: 3px solid #f7685b;
 }
