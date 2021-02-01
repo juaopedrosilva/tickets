@@ -1,5 +1,5 @@
 .modal {
-    display: flex;
+    display: none;
     justify-content: center;
     position: fixed; 
     z-index: 1;   
@@ -11,7 +11,8 @@
     top: 0;
     background-color: black;
     background-color: rgba(0, 0, 0, 0.5);
-    padding-top: 2% ;
+    padding-top: 2%;
+    padding-bottom: 6%;
 }
 .modal-content {
     background-color: #f5f6f8;
@@ -38,10 +39,6 @@ div.modal div.modal-content div.header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-div.modal div.modal-content div.body{
-
 }
 
 div.modo{
