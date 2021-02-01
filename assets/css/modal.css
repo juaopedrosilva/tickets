@@ -54,15 +54,15 @@ div.modo span{
     padding: 10px;
     color: white;
 }
-.urgent{
+.urgent-modal{
     background-color: #F76858;
     border-radius: 5px;
 }
-.moderate{
+.moderate-modal{
     background-color: #FFBB46;
     border-radius: 5px;
 }
-.concluded{
+.concluded-modal{
     background-color: #2ED47A;
     border-radius: 5px;
 }
