@@ -21,10 +21,14 @@
     width: 45%;
     margin-bottom: 25px;
 }
+.header h2 {
+    font-size: 1.5em;
+
+}
 .close{
     color: black;
     float: right;
-    font-size: 20px;
+    font-size: 2em;
     font-weight: bold;
 }
 .close:hover,
@@ -48,8 +52,9 @@ div.modo{
     margin-top: 15px;
 }
 div.modo span{
-    padding: 10px;
+    padding: 5px 4px;
     color: white;
+    font-size: 1em;
 }
 .urgent-modal{
     background-color: #F76858;
@@ -87,7 +92,26 @@ div.form-button button{
     padding: 20px;
     background-color: #109CF1;
     color: #f5f6f8;
+    font-size: 1.2em;
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .modal-content {
+        padding: 0px;
+        width: 90%;
+        height: 80%;
+    }
+    div.form-group, .header h2, .close{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .modal{
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+    
 }
