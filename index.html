@@ -4,38 +4,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/ea346223ba.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="./assets/css/styles.css">
+  <link rel="stylesheet" href="./assets/css/modal.css">
   <title>Tickets</title>
 </head>
 
 <body>
-  <header>
+  <!-- Cabeçalho -->
+  <header class="cabecalho">
     <div class="logo">
       <a href="index.html"><img src="./img/logo.png" alt="logo"></a>
     </div>
-    <div class="navbar">
-      <nav>
-        <form>
+    <div>
+        <form class="search">
           <i class="fas fa-search"></i>
-          <input type="text" placeholder="Search for a deal">
+          <input type="text" placeholder="Pesquise">
         </form>
-      </nav>
-      <i class="far fa-bell"></i>
     </div>
+  
   </header>
+  <!-- Fim Cabeçalho -->
 
+  <!-- Cards Body -->
   <div class="wrapper">
-    <div class="botton" id ="">
-      <button type="submit">Adicionar</button>
+
+    <div class="btn" id="">
+      <button id="myBtn">Adicionar</button>
     </div>
 
     <div class="container">
 
-      <div class="columns"  id="list-bug">
+      <div class="columns" id="list-bug">
         <div class="title">
           <h3>Bug</h3>
           <span></span>
@@ -62,7 +66,86 @@
       </div>
     </div>
   </div>
+
   <script type="text/javascript" src='./assets/js/app.js'></script>
+  <!--Fim Cards Body -->
+
+  <!--Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <div class="header">
+        <h2>Registro</h2>
+        <span class="close">&times;</span>
+      </div>
+      <div class="body">
+        <div class="modo">
+          <span class="urgent-modal">URGENTE</span>
+          <span class="moderate-modal">MODERADO</span>
+          <span class="concluded-modal">CONCLUÍDO</span>
+        </div>
+        <form>
+          <div class="form-group">
+            <label for="Cliente">Cliente:</label>
+            <input type="text" id="Cliente" name="Cliente">
+          </div>
+          <div class="form-group">
+            <label for="Data">Data:</label>
+            <input type="date" id="Data" name="Data">
+          </div>
+          <div class="form-group">
+            <label for="Sistema">Sistema:</label>
+            <select id="country" name="country">
+              <option value="au"></option>
+              <option value="au">Bug</option>
+              <option value="ca">Correção</option>
+              <option value="usa">Novidades</option>
+              <option value="usa">Concluidos</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="Categoria">Categoria:</label>
+            <select id="country" name="country">
+              <option value="au"></option>
+              <option value="au">Bug</option>
+              <option value="ca">Correção</option>
+              <option value="usa">Novidades</option>
+              <option value="usa">Concluidos</option>
+            </select>
+          </div>
+          <div class="form-group" style="width: 100%;">
+            <label for="Solicitacao">Solicitação:</label>
+            <input type="text" id="Solicitacao" name="Solicitacao">
+          </div>
+          <div class="form-group">
+            <label for="Anexos">Anexos:</label>
+            <input type="file" id="Anexos" name="Anexos">
+          </div>
+          <div class="form-group">
+            <label for="Categoria">Status:</label>
+            <select id="country" name="country">
+              <option value="au"></option>
+              <option value="au">Aberto</option>
+              <option value="ca">Fechado</option>
+              <option value="usa">Em Andamento</option>
+            </select>
+          </div>
+          <div class="form-group" style="width: 100%;">
+            <label for="w3review">Resposta:</label>
+            <textarea id="w3review" name="w3review" rows="4" cols="50" style="resize: none;">
+               </textarea>
+          </div>
+          <div class="form-button">
+            <button type="submit">Enviar</button>
+          </div>
+        </form>
+      </div>
+      <div class="fotter">
+
+      </div>
+    </div>
+  </div>
+  <script src="./assets/js/modal.js"></script>
+  <!--Fim Modal -->
 </body>
 
 </html>

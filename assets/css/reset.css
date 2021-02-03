@@ -5,6 +5,8 @@
     font-size: 100%;
     font-family: 'Poppins', sans-serif;
 }
+
+
 /* Largura da barra de rolagem */
 ::-webkit-scrollbar {
     width: 10px;
@@ -24,4 +26,4 @@
 ::-webkit-scrollbar-thumb:vertical:hover,
 ::-webkit-scrollbar-thumb:horizontal:hover {
     background-color: #717171;
-}
+} 
