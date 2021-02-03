@@ -4,48 +4,46 @@ body {
 }
 
 /*NAVBAR*/
-header {
+.cabecalho {
     width: 100%;
     display: flex;
+    justify-content: space-around;
     position: relative;
     align-items: center;
     border-bottom: 0.5px solid #ccc;
     /*box-shadow: 0 0 5px 2px rgb(0 0 0 / 33%);*/
     padding: 10px;
+    
 }
 
-header img {
+.cabecalho img {
     width: 200px;
-    margin-right: 30px;
     cursor: pointer;
     display: flex;
-
 }
 
-.navbar {
-    display: flex;
-    align-items: center;
-    flex-basis: 85%;
-    justify-content: space-between;
+.search {
+    margin-top: 0px;
+   
 }
 
-.navbar form input {
+.search input {
+    color: #7c7c7c;
+    font-size: 0.9em;
     border: none;
+    outline: none;
+    background: none;
     border-bottom: 0.5px solid #949aa0;
     width: 300px;
     cursor: text;
 
 }
 
-.navbar form i {
+.search i {
+    width: 26px;
     color: #949aa0;
-    font-size: 1rem;
-}
-
-.navbar i {
-    color: #949aa0;
-    font-size: 1.3rem;
-    cursor: pointer;
+    font-size: 1.15em;
+    margin-top: 8px
 }
 
 /*CARTÕES*/
@@ -55,12 +53,14 @@ div.wrapper {
     padding: 0 5%;
     flex-direction: column;
 }
-div.botton {
+
+div.btn {
     display: flex;
     justify-content: flex-end;
     padding: 20px 30px 0px 0px;
 }
-div.botton > button{
+
+div.btn>button {
     background-color: #109cf1;
     color: #f5f6f8;
     border: none;
@@ -68,9 +68,10 @@ div.botton > button{
     cursor: pointer;
     display: block;
     padding: 8px 25px;
-    
+
 }
-div.botton > button:hover {
+
+div.btn>button:hover {
     background-color: #0996ee;
 
 }
@@ -78,7 +79,7 @@ div.botton > button:hover {
 div.container {
     display: flex;
     width: 100%;
-   
+
 }
 
 div.columns {
@@ -114,7 +115,7 @@ div.cards:hover {
 
 }
 
-div.cards > h4 {
+div.cards>h4 {
     padding-bottom: 10px;
 }
 
@@ -145,4 +146,40 @@ div.cards>span {
 
 .high {
     border-left: 3px solid #f7685b;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .cabecalho img {
+        width: 150px;
+    }
+    .search {
+        margin-bottom: 10px;
+    }
+    .search input {
+        width: 200px;
+    }
+    div.wrapper {
+        padding: 0 0;
+    }
+
+    div.container {
+        min-width: 1025px;
+    }
+
+    div.columns {
+        min-width: 450px;
+        margin-left: -20px;
+        margin-top: 20px;
+    }
+
+    div.btn {
+        justify-content: flex-start;
+        padding: 20px 30px 0px 38px;
+    }
+
+    div.btn>button {
+        font-size: 0.9em;
+
+    }
+
 }
