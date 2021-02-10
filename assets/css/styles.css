@@ -1,6 +1,8 @@
 body {
     background-color: #f5f6f8;
     overflow-y: hidden;
+    overflow-x: hidden;
+    
 }
 
 /*NAVBAR*/
@@ -13,6 +15,7 @@ body {
     border-bottom: 0.5px solid #ccc;
     /*box-shadow: 0 0 5px 2px rgb(0 0 0 / 33%);*/
     padding: 10px;
+    overflow-x: hidden;
     
 }
 
@@ -79,6 +82,7 @@ div.btn>button:hover {
 div.container {
     display: flex;
     width: 100%;
+    overflow-x: scroll;
 
 }
 
@@ -163,7 +167,7 @@ div.cards>span {
     }
 
     div.container {
-        min-width: 1025px;
+        max-width: 1250px;
     }
 
     div.columns {

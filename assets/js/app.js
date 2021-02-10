@@ -22,7 +22,7 @@ function renderCard(e){
 
 async function getAll(){
     
-    const response = await fetch('http://192.168.1.108:9999/tickets')  // Faz a requisição
+    const response = await fetch('http://192.168.1.108:3000/tickets')  // Faz a requisição
     const data = await response.json() // Converte os dados en json
 
     // Aqui filtramos e armazenamos em em const___
