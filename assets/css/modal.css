@@ -18,7 +18,7 @@
     background-color: #f5f6f8;
     padding: 15px;
     border-radius: 4px;
-    width: 45%;
+    width: 42%;
     margin-bottom: 25px;
 }
 .header h2 {
@@ -52,21 +52,26 @@ div.modo{
     margin-top: 15px;
 }
 div.modo span{
-    padding: 5px 4px;
+    width: 120px;
+    padding: 10px 4px;
     color: white;
     font-size: 1em;
+    font-weight: bold;
 }
 .urgent-modal{
     background-color: #F76858;
     border-radius: 5px;
+    text-align: center;
 }
 .moderate-modal{
     background-color: #FFBB46;
     border-radius: 5px;
+    text-align: center;
 }
 .concluded-modal{
     background-color: #2ED47A;
     border-radius: 5px;
+    text-align: center;
 }
 form{
     display: flex;
