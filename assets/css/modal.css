@@ -1,15 +1,15 @@
 .modal {
     display: none;
     justify-content: center;
-    position: fixed; 
+    position: absolute;
     z-index: 1;   
     width: 100%;
-    height: 100vh;  
-    overflow: auto;
+    height: auto; 
+    overflow-y: scroll;
     left: 0;
     right: 0;
     top: 0;
-    background-color: black;
+    background-color:black;
     background-color: rgba(0, 0, 0, 0.5);
     padding-top: 2%;
     padding-bottom: 6%;
@@ -18,7 +18,9 @@
     background-color: #f5f6f8;
     padding: 15px;
     border-radius: 4px;
-    width: 45%;
+    width: 50%;
+    height: auto;
+    overflow-y: auto;
     margin-bottom: 25px;
 }
 .header h2 {
@@ -44,29 +46,34 @@ div.modal div.modal-content div.header{
     justify-content: space-between;
     align-items: center;
 }
-
 div.modo{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: start;
     margin-top: 15px;
+    margin-left: 40px;
 }
 div.modo span{
     padding: 5px 4px;
     color: white;
     font-size: 1em;
+    width: 70px;
+    text-align: center;
 }
 .urgent-modal{
     background-color: #F76858;
     border-radius: 5px;
+    margin-left: 10px;
 }
 .moderate-modal{
     background-color: #FFBB46;
     border-radius: 5px;
+    margin-left: 10px;
 }
 .concluded-modal{
     background-color: #2ED47A;
     border-radius: 5px;
+    margin-left: 10px;
 }
 form{
     display: flex;
@@ -97,7 +104,21 @@ div.form-button button{
     cursor: pointer;
     border-radius: 5px;
 }
-
+div.form-group input{
+    border: 1px solid #CCC;
+    border-radius: 8px;
+    padding: 6px 3px;
+}
+div.form-group select{
+    border: 1px solid #CCC;
+    border-radius: 8px;
+    padding: 6px 3px;
+}
+div.form-group textarea{
+    border: 1px solid #CCC;
+    border-radius: 8px;
+    padding: 6px 3px;
+}
 @media (min-width: 320px) and (max-width: 480px) {
     .modal-content {
         padding: 0px;
@@ -112,6 +133,9 @@ div.form-button button{
         display: none;
         justify-content: center;
         align-items: center;
+    }
+    div.modo{
+        margin-left: 20px;
     }
     
 }

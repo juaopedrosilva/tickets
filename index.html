@@ -79,9 +79,10 @@
       </div>
       <div class="body">
         <div class="modo">
-          <span class="urgent-modal">URGENTE</span>
-          <span class="moderate-modal">MODERADO</span>
-          <span class="concluded-modal">CONCLUÍDO</span>
+          <h2>Prioridade:</h2>
+          <span class="urgent-modal">ALTA</span>
+          <span class="moderate-modal">MÉDIA</span>
+          <span class="concluded-modal">BAIXA</span>
         </div>
         <form>
           <div class="form-group">
@@ -89,11 +90,11 @@
             <input type="text" id="Cliente" name="Cliente">
           </div>
           <div class="form-group">
-            <label for="Data">Data:</label>
-            <input type="date" id="Data" name="Data">
+            <label for="Cliente">Solicitante:</label>
+            <input type="text" id="Cliente" name="Cliente">
           </div>
           <div class="form-group">
-            <label for="Sistema">Sistema:</label>
+            <label for="Categoria">Sistema:</label>
             <select id="country" name="country">
               <option value="#"></option>
               <option value="#">Atacado</option>
@@ -113,26 +114,27 @@
               <option value="au">Bug</option>
               <option value="ca">Correção</option>
               <option value="usa">Novidades</option>
-              <option value="usa">Concluidos</option>
             </select>
           </div>
           <div class="form-group" style="width: 100%;">
             <label for="Solicitacao">Solicitação:</label>
-            <input type="text" id="Solicitacao" name="Solicitacao">
+            <textarea id="w3review" name="w3review" rows="4" cols="50" style="resize: none;">
+            </textarea>
           </div>
           <div class="form-group">
             <label for="Anexos">Anexos:</label>
             <input type="file" id="Anexos" name="Anexos">
           </div>
           <div class="form-group">
-            <label for="Categoria">Status:</label>
-            <select id="country" name="country">
-              <option value="au"></option>
-              <option value="au">Aberto</option>
-              <option value="ca">Fechado</option>
-              <option value="usa">Em Andamento</option>
-            </select>
-          </div>
+          <label for="Categoria">Status:</label>
+          <select id="country" name="country">
+            <option value="au"></option>
+            <option value="au">Aberto</option>
+            <option value="ca">Em Andamento</option>
+            <option value="usa">Entregue</option>
+            <option value="usa">Concluído</option>
+          </select>
+        </div>
           <div class="form-group" style="width: 100%;">
             <label for="w3review">Resposta:</label>
             <textarea id="w3review" name="w3review" rows="4" cols="50" style="resize: none;">
