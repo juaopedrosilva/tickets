@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ea346223ba.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/modal.css">
+  <title>Tickets</title>
+</head>
+
+<body>
+  <!-- Cabeçalho -->
+  <header class="cabecalho">
+    <div class="logo">
+      <a href="index.html"><img src="/img/logo.png" alt="logo"></a>
+    </div>
+    <div>
+      <form class="search">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Pesquise">
+      </form>
+    </div>
+
+  </header>
+  <!-- Fim Cabeçalho -->
+
+  <!-- Cards Body -->
+  <div class="wrapper">
+
+    <div class="btn" id="">
+      <button id="myBtn">Adicionar</button>
+    </div>
+
+    <div class="container">
+
+      <div class="columns" id="list-bug">
+        <div class="title">
+          <h3>Bug</h3>
+          <span></span>
+        </div>
+        
+        <% solicitacoes.forEach( elemento => { %>
+          <% if(elemento.categoria == "bug") { %>
+            <div class="card <%= elemento.prioridade.toLowerCase() %>">
+              <h4><%= elemento.titulo %></h4>
+              <p><%= elemento.solicitacao %></p>
+              <span><%= elemento.cliente %>, <%= elemento.solicitante %></span>
+            </div>
+          <% } %>
+        <% }) %>
+
+      </div>
+      <div class="columns" id="list-correction">
+        <div class="title">
+          <h3>Correção</h3>
+          <span></span>
+        </div>
+
+        <% solicitacoes.forEach( elemento => { %>
+          <% if(elemento.categoria == "correcao" && elemento.status !== "concluido") { %>
+            <div class="card <%= elemento.prioridade.toLowerCase() %>">
+              <h4><%= elemento.titulo %></h4>
+              <p><%= elemento.solicitacao %></p>
+              <span><%= elemento.cliente %>, <%= elemento.solicitante %></span>
+            </div>
+          <% } %>
+        <% }) %>  
+      </div>
+      <div class="columns" id="list-new">
+        <div class="title">
+          <h3>Novidades</h3>
+          <span></span>
+        </div>
+
+        <% solicitacoes.forEach( elemento => { %>
+          <% if(elemento.categoria == "novidade" && elemento.status !== "concluido") { %>
+            <div class="card <%= elemento.prioridade.toLowerCase() %>">
+              <h4><%= elemento.titulo %></h4>
+              <p><%= elemento.solicitacao %></p>
+              <span><%= elemento.cliente %>, <%= elemento.solicitante %></span>
+            </div>
+          <% } %>
+        <% }) %>
+      </div>
+
+      <div class="columns" id="list-completed">
+        <div class="title">
+          <h3>Concluidos</h3>
+          <span></span>
+        </div>
+
+        <% solicitacoes.forEach( elemento => { %>
+          <% if(elemento.status === "concluido") { %>
+            <div class="card <%= elemento.prioridade.toLowerCase() %>">
+              <h4><%= elemento.titulo %></h4>
+              <p><%= elemento.solicitacao %></p>
+              <span><%= elemento.cliente %>, <%= elemento.solicitante %></span>
+            </div>
+          <% } %>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+  <!--Fim Cards Body -->
+
+  <!--Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <div class="header">
+        <h2>Registro</h2>
+        <span id="close" class="close-btn">&times;</span>
+      </div>
+      <div class="body">
+        <form method="POST" action="/salvarform">
+          <div class="modo">
+            <h2>Prioridade:</h2>
+            <input type="checkbox" id="alta" value="ALTA" name="prioridade">
+            <label class="urgent-modal" for="alta">ALTA</label>
+
+            <input type="checkbox" id="media" value="MEDIA" name="prioridade">
+            <label class="moderate-modal" for="media">MÉDIA</label>
+
+            <input type="checkbox" id="baixa" value="BAIXA" name="prioridade">
+            <label class="concluded-modal" for="baixa">BAIXA</label>        
+          </div>
+
+          <div class="form-group titulo">
+            <label for="titulo">Titulo da Solicitação:</label>
+            <input type="text" placeholder="Titulo" name="titulo">
+          </div>
+
+          <div class="form-group">
+            <label for="cliente">Cliente:</label>
+            <input type="text" id="cliente" name="cliente" placeholder="Informe seu nome">
+          </div>
+          <div class="form-group">
+            <label for="solicitante">Solicitante:</label>
+            <input type="text" id="solicitante" name="solicitante" placeholder="Informe o nome da empresa em questão">
+          </div>
+          <div class="form-group">
+            <label for="sistema">Sistema:</label>
+            <select id="sistema" name="sistema">
+              <option value=""></option>
+              <option value="Atacado">Atacado</option>
+              <option value="NFE">NFE</option>
+              <option value="MDFe">MDFe</option>
+              <option value="MFE">MFE</option>
+              <option value="NFCe">NFCe</option>
+              <option value="NFCe Integrador">NFCe Integrador</option>
+              <option value="GETEC Inside">GETEC Inside</option>
+              <option value="VendaMob">VendaMob</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="categoria">Categoria:</label>
+            <select id="categoria" name="categoria">
+              <option value=""></option>
+              <option value="bug">Bug</option>
+              <option value="correcao">Correção</option>
+              <option value="novidade">Novidades</option>
+            </select>
+          </div>
+          <div class="form-group" style="width: 100%;">
+            <label for="solicitacao">Solicitação:</label>
+            <textarea name="solicitacao" rows="4" placeholder="Descreva o seu problema">
+            </textarea>
+          </div>
+          <div class="form-group">
+            <label for="anexos">Anexos:</label>
+            <input type="file" id="anexos" name="anexos">
+          </div>
+          <div class="form-group">
+          <label for="status">Status:</label>
+          <select id="status" name="status">
+            <option value=""></option>
+            <option value="aberto">Aberto</option>
+            <option value="andamento">Em Andamento</option>
+            <option value="entregue">Entregue</option>
+            <option value="concluido">Concluído</option>
+          </select>
+          </div>
+          <div class="form-group" style="width: 100%;">
+            <label for="resposta">Resposta:</label>
+            <textarea name="resposta" rows="4" cols="50" placeholder="Descreva a resposta"></textarea>
+          </div>
+          <div class="form-button">
+            <button type="submit">Enviar</button>
+            <a href="#" id="close">Cancelar</a>
+          </div>
+        </form>
+      </div>
+      <div class="fotter">
+
+      </div>
+    </div>
+  </div>
+  <!--Fim Modal -->
+
+  <script type="text/javascript" src='/js/app.js'></script>
+  <script src="/js/modal.js"></script>
+</body>
+
+</html>

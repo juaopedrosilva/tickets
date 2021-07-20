@@ -6,6 +6,14 @@
     font-family: 'Poppins', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
 
 /* Largura da barra de rolagem */
 ::-webkit-scrollbar {

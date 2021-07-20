@@ -38,7 +38,6 @@ body {
     border-bottom: 0.5px solid #949aa0;
     width: 300px;
     cursor: text;
-
 }
 
 .search i {
@@ -82,7 +81,6 @@ div.container {
     display: flex;
     width: 100%;
     overflow-x: scroll;
-
 }
 
 div.columns {
@@ -102,7 +100,7 @@ div.title {
 
 }
 
-div.cards {
+div.card {
     width: 80%;
     display: flex;
     margin: 20px 0px;
@@ -112,17 +110,17 @@ div.cards {
     transition: 0.3s;
 }
 
-div.cards:hover {
+div.card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     cursor: pointer;
 
 }
 
-div.cards>h4 {
+div.card>h4 {
     padding-bottom: 10px;
 }
 
-div.cards>p {
+div.card>p {
     /*corta o texto que não cabe mais na caixa*/
     text-overflow: ellipsis;
     overflow: hidden;
@@ -132,22 +130,22 @@ div.cards>p {
     padding-bottom: 3px;
 }
 
-div.cards>span {
+div.card>span {
     font-size: 0.85rem;
     font-style: italic;
     color: #343a40;
 }
 
-/*Prioridades*/
-.low {
+/* Prioridades */
+.baixa {
     border-left: 3px solid #2ed47a;
 }
 
-.moderate {
+.media {
     border-left: 3px solid #ffb946;
 }
 
-.high {
+.alta {
     border-left: 3px solid #f7685b;
 }
 

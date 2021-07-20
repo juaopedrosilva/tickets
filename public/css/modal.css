@@ -27,14 +27,14 @@
     font-size: 1.5em;
 
 }
-.close{
+.close-btn{
     color: black;
     float: right;
     font-size: 2em;
     font-weight: bold;
 }
-.close:hover,
-.close:focus{
+.close-btn:hover,
+.close-btn:focus{
     color: rgb(255, 81, 0);
     cursor: pointer;
     text-decoration: none;
@@ -50,30 +50,36 @@ div.modo{
     display: flex;
     align-items: center;
     justify-content: start;
-    margin-top: 15px;
-    margin-left: 40px;
+    margin: 15px 0;
+    /* margin-left: 40px; */
+    padding: 4px;
 }
-div.modo span{
+div.modo label{
     padding: 5px 4px;
     color: white;
     font-size: 1em;
-    width: 70px;
+    width: 5rem;
     text-align: center;
 }
+
+div.modo input {
+    margin-left: 10px;
+}
+
 .urgent-modal{
     background-color: #F76858;
     border-radius: 5px;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 .moderate-modal{
     background-color: #FFBB46;
     border-radius: 5px;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 .concluded-modal{
     background-color: #2ED47A;
     border-radius: 5px;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 form{
     display: flex;
@@ -87,23 +93,37 @@ div.form-group{
     width: 49%;
     padding: 5px;
 }
+
+div.form-group.titulo {
+    width: 100%;
+}
+
+div.form-group.titulo input{
+    width: 49%;
+}
+
 div.form-button{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
     padding: 10px;
 }
-div.form-button button{
+div.form-button button, div.form-button a{
     border: none;
     outline: none;
-    padding: 20px;
+    padding: 10px;
+    width: 7rem;
     background-color: #109CF1;
     color: #f5f6f8;
     font-size: 1.2em;
-    font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
 }
+div.form-button a {
+    margin-left: 20px;
+    background-color: #F76858;
+}
+
 div.form-group input{
     border: 1px solid #CCC;
     border-radius: 8px;
@@ -125,7 +145,7 @@ div.form-group textarea{
         width: 90%;
         height: 80%;
     }
-    div.form-group, .header h2, .close{
+    div.form-group, .header h2, .close-btn{
         padding-left: 15px;
         padding-right: 15px;
     }
