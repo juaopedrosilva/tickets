@@ -16,16 +16,17 @@
 <body>
   <!-- Cabeçalho -->
   <header class="cabecalho">
-    <div class="logo">
-      <a href="index.html"><img src="/img/logo.png" alt="logo"></a>
+    <div class="container">
+      <div class="logo">
+        <a href="/"><img src="/img/logo.png" alt="logo"></a>
+      </div>
+      <div>
+        <form class="search">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Pesquise">
+        </form>
+      </div>
     </div>
-    <div>
-      <form class="search">
-        <i class="fas fa-search"></i>
-        <input type="text" placeholder="Pesquise">
-      </form>
-    </div>
-
   </header>
   <!-- Fim Cabeçalho -->
 
@@ -41,16 +42,24 @@
       <div class="columns" id="list-bug">
         <div class="title">
           <h3>Bug</h3>
-          <span></span>
+          <span><%= quantidadeCategorias[0] %></span>
         </div>
-        
-        <% solicitacoes.forEach( elemento => { %>
-          <% if(elemento.categoria == "bug") { %>
-            <div class="card <%= elemento.prioridade.toLowerCase() %>">
-              <h4><%= elemento.titulo %></h4>
-              <p><%= elemento.solicitacao %></p>
-              <span><%= elemento.cliente %>, <%= elemento.solicitante %></span>
-            </div>
+
+        <% solicitacoes.forEach( elemento=> { %>
+          <% if(elemento.categoria=="bug" && elemento.status!="concluido") { %>         
+              <div class="card">
+                <a href="/solicitacao/<%= elemento.id %>" class="<%= elemento.prioridade.toLowerCase() %>">
+                  <h4>
+                    <%= elemento.titulo %>
+                  </h4>
+                  <p>
+                    <%= elemento.solicitacao %>
+                  </p>
+                  <span>
+                    <%= elemento.cliente %> - <%= elemento.solicitante %>
+                  </span>
+                </a>
+              </div>
           <% } %>
         <% }) %>
 
@@ -58,31 +67,47 @@
       <div class="columns" id="list-correction">
         <div class="title">
           <h3>Correção</h3>
-          <span></span>
+          <span><%= quantidadeCategorias[2] %></span>
         </div>
 
-        <% solicitacoes.forEach( elemento => { %>
-          <% if(elemento.categoria == "correcao" && elemento.status !== "concluido") { %>
-            <div class="card <%= elemento.prioridade.toLowerCase() %>">
-              <h4><%= elemento.titulo %></h4>
-              <p><%= elemento.solicitacao %></p>
-              <span><%= elemento.cliente %>, <%= elemento.solicitante %></span>
+        <% solicitacoes.forEach( elemento=> { %>
+          <% if(elemento.categoria=="correcao" && elemento.status !=="concluido" ) { %>
+            <div class="card">
+              <a href="/solicitacao/<%= elemento.id %>" class="<%= elemento.prioridade.toLowerCase() %>">
+                <h4>
+                  <%= elemento.titulo %>
+                </h4>
+                <p>
+                  <%= elemento.solicitacao %>
+                </p>
+                <span>
+                  <%= elemento.cliente %> - <%= elemento.solicitante %>
+                </span>
+              </a>
             </div>
           <% } %>
-        <% }) %>  
+        <% }) %>
       </div>
       <div class="columns" id="list-new">
         <div class="title">
           <h3>Novidades</h3>
-          <span></span>
+          <span><%= quantidadeCategorias[1] %></span>
         </div>
 
-        <% solicitacoes.forEach( elemento => { %>
-          <% if(elemento.categoria == "novidade" && elemento.status !== "concluido") { %>
-            <div class="card <%= elemento.prioridade.toLowerCase() %>">
-              <h4><%= elemento.titulo %></h4>
-              <p><%= elemento.solicitacao %></p>
-              <span><%= elemento.cliente %>, <%= elemento.solicitante %></span>
+        <% solicitacoes.forEach( (elemento, index)=> { %>
+          <% if(elemento.categoria=="novidade" && elemento.status !=="concluido" ) { %>
+            <div class="card">
+              <a href="/solicitacao/<%= elemento.id %>" class="<%= elemento.prioridade.toLowerCase() %>">
+                <h4>
+                  <%= elemento.titulo %>
+                </h4>
+                <p>
+                  <%= elemento.solicitacao %>
+                </p>
+                <span>
+                  <%= elemento.cliente %> - <%= elemento.solicitante %>
+                </span>
+              </a>
             </div>
           <% } %>
         <% }) %>
@@ -91,15 +116,23 @@
       <div class="columns" id="list-completed">
         <div class="title">
           <h3>Concluidos</h3>
-          <span></span>
+          <span><%= quantidadeCategorias[3] %></span>
         </div>
 
-        <% solicitacoes.forEach( elemento => { %>
-          <% if(elemento.status === "concluido") { %>
-            <div class="card <%= elemento.prioridade.toLowerCase() %>">
-              <h4><%= elemento.titulo %></h4>
-              <p><%= elemento.solicitacao %></p>
-              <span><%= elemento.cliente %>, <%= elemento.solicitante %></span>
+        <% solicitacoes.forEach( elemento=> { %>
+          <% if(elemento.status==="concluido" ) { %>
+            <div class="card">
+              <a href="/solicitacao/<%= elemento.id %>" class="<%= elemento.prioridade.toLowerCase() %>">
+                <h4>
+                  <%= elemento.titulo %>
+                </h4>
+                <p>
+                  <%= elemento.solicitacao %>
+                </p>
+                <span>
+                  <%= elemento.cliente %> - <%= elemento.solicitante %>
+                </span>
+              </a>
             </div>
           <% } %>
         <% }) %>
@@ -126,17 +159,17 @@
             <label class="moderate-modal" for="media">MÉDIA</label>
 
             <input type="checkbox" id="baixa" value="BAIXA" name="prioridade">
-            <label class="concluded-modal" for="baixa">BAIXA</label>        
+            <label class="concluded-modal" for="baixa">BAIXA</label>
           </div>
 
           <div class="form-group titulo">
             <label for="titulo">Titulo da Solicitação:</label>
-            <input type="text" placeholder="Titulo" name="titulo">
+            <input type="text" placeholder="Informe o título da solicitação" name="titulo">
           </div>
 
           <div class="form-group">
             <label for="cliente">Cliente:</label>
-            <input type="text" id="cliente" name="cliente" placeholder="Informe seu nome">
+            <input type="text" id="cliente" name="cliente" placeholder="Informe o nome do cliente">
           </div>
           <div class="form-group">
             <label for="solicitante">Solicitante:</label>
@@ -167,22 +200,22 @@
           </div>
           <div class="form-group" style="width: 100%;">
             <label for="solicitacao">Solicitação:</label>
-            <textarea name="solicitacao" rows="4" placeholder="Descreva o seu problema">
-            </textarea>
+            <textarea name="solicitacao" rows="4" placeholder="Descreva o problema">
+          </textarea>
           </div>
           <div class="form-group">
             <label for="anexos">Anexos:</label>
             <input type="file" id="anexos" name="anexos">
           </div>
           <div class="form-group">
-          <label for="status">Status:</label>
-          <select id="status" name="status">
-            <option value=""></option>
-            <option value="aberto">Aberto</option>
-            <option value="andamento">Em Andamento</option>
-            <option value="entregue">Entregue</option>
-            <option value="concluido">Concluído</option>
-          </select>
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+              <option value=""></option>
+              <option value="aberto">Aberto</option>
+              <option value="andamento">Em Andamento</option>
+              <option value="entregue">Entregue</option>
+              <option value="concluido">Concluído</option>
+            </select>
           </div>
           <div class="form-group" style="width: 100%;">
             <label for="resposta">Resposta:</label>
@@ -200,9 +233,8 @@
     </div>
   </div>
   <!--Fim Modal -->
-
-  <script type="text/javascript" src='/js/app.js'></script>
-  <script src="/js/modal.js"></script>
 </body>
+<script src='/js/app.js'></script>
+<script src="/js/modal.js"></script>
 
 </html>

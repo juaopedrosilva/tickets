@@ -108,7 +108,7 @@ div.form-button{
     width: 100%;
     padding: 10px;
 }
-div.form-button button, div.form-button a{
+div.form-button button, div.form-button #close{
     border: none;
     outline: none;
     padding: 10px;
@@ -119,7 +119,7 @@ div.form-button button, div.form-button a{
     cursor: pointer;
     border-radius: 5px;
 }
-div.form-button a {
+div.form-button #close {
     margin-left: 20px;
     background-color: #F76858;
 }

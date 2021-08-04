@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ea346223ba.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/solicitacao.css">
+  <title>Tickets</title>
+</head>
+
+<body>
+  <!-- Cabeçalho -->
+  <header class="cabecalho">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="/img/logo.png" alt="logo"></a>
+      </div>
+      <div>
+        <form class="search">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Pesquise">
+        </form>
+      </div>
+    </div>
+  </header>
+  <!-- Fim Cabeçalho -->
+
+  <!--Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <div class="header">
+        <h2>Registro</h2>
+      </div>
+      <div class="body">
+        <form method="POST" action="/updateform">
+          <div class="modo">
+            <h2>Prioridade:</h2>
+
+            <% if(solicitacao.prioridade === "ALTA") { %>
+              <input type="checkbox" id="alta" value="ALTA" name="prioridade" checked>
+              <label class="urgent-modal" for="alta">ALTA</label>
+            <% } else { %>
+              <input type="checkbox" id="alta" value="ALTA" name="prioridade">
+              <label class="urgent-modal" for="alta">ALTA</label>
+            <% } %>
+
+            <% if(solicitacao.prioridade === "MEDIA") { %>
+              <input type="checkbox" id="media" value="MEDIA" name="prioridade" checked>
+              <label class="moderate-modal" for="media">MÉDIA</label>
+            <% } else { %>
+              <input type="checkbox" id="media" value="MEDIA" name="prioridade">
+              <label class="moderate-modal" for="media">MÉDIA</label>
+            <% } %>
+
+            <% if(solicitacao.prioridade === "BAIXA") { %>
+              <input type="checkbox" id="baixa" value="BAIXA" name="prioridade" checked>
+              <label class="concluded-modal" for="baixa">BAIXA</label>
+            <% } else { %>
+              <input type="checkbox" id="baixa" value="BAIXA" name="prioridade">
+              <label class="concluded-modal" for="baixa">BAIXA</label>
+            <% } %>
+
+
+          </div>
+
+          <div class="form-group titulo">
+            <label for="titulo">Titulo da Solicitação:</label>
+            <input type="text" placeholder="Informe o título da solicitação" name="titulo" value="<%= solicitacao.titulo %>">
+          </div>
+
+          <div class="form-group">
+            <label for="cliente">Cliente:</label>
+            <input type="text" id="cliente" name="cliente" placeholder="Informe o nome do cliente" value="<%= solicitacao.cliente %>">
+          </div>
+          <div class="form-group">
+            <label for="solicitante">Solicitante:</label>
+            <input type="text" id="solicitante" name="solicitante" placeholder="Informe o nome da empresa em questão" value="<%= solicitacao.solicitante %>">
+          </div>
+          <div class="form-group">
+            <label for="sistema">Sistema:</label>
+            <select id="sistema" name="sistema">
+              <option value=""></option>
+              <option value="Atacado" id="Atacado">Atacado</option>
+              <option value="NFE" id="NFE">NFE</option>
+              <option value="MDFe" id="MDFe">MDFe</option>
+              <option value="MFE" id="MFE">MFE</option>
+              <option value="NFCe" id="NFCe">NFCe</option>
+              <option value="NFCe Integrador" id="NFCe Integrador">NFCe Integrador</option>
+              <option value="GETEC Inside" id="GETEC Inside">GETEC Inside</option>
+              <option value="VendaMob" id="VendaMob">VendaMob</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="categoria">Categoria:</label>
+            <select id="categoria" name="categoria">
+              <option value=""></option>
+              <option value="bug" id="bug">Bug</option>
+              <option value="correcao" id="correcao">Correção</option>
+              <option value="novidade" id="novidade">Novidades</option>
+            </select>
+          </div>
+          <div class="form-group" style="width: 100%;">
+            <label for="solicitacao">Solicitação:</label>
+            <textarea name="solicitacao" rows="4" placeholder="Descreva o problema" value="<%= solicitacao.solicitacao %>">
+          </textarea>
+          </div>
+          <div class="form-group">
+            <label for="anexos">Anexos:</label>
+            <input type="file" id="anexos" name="anexos">
+          </div>
+          <div class="form-group">
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+              <option value=""></option>
+              <option value="aberto" id="aberto">Aberto</option>
+              <option value="andamento" id="andamento">Em Andamento</option>
+              <option value="entregue" id="entregue">Entregue</option>
+              <option value="concluido" id="concluido">Concluído</option>
+            </select>
+          </div>
+          <div class="form-group" style="width: 100%;">
+            <label for="resposta">Resposta:</label>
+            <textarea name="resposta" rows="4" cols="50" placeholder="Descreva a resposta"></textarea>
+          </div>
+          <input type="text" name="id" value="<%= solicitacao.id %>" style="display: none;">
+          <div class="form-button">
+            <button type="submit">Enviar</button>
+            <a href="/" id="close">Cancelar</a>
+          </div>
+        </form>
+      </div>
+      <div class="fotter">
+
+      </div>
+    </div>
+  </div>
+  <!--Fim Modal -->
+</body>
+<script src='/js/app.js'></script>
+<script src="/js/modal.js"></script>
+<script>
+
+  let optionSistema = document.getElementById("<%= solicitacao.sistema %>").selected = true;
+  let optionCategoria = document.getElementById("<%= solicitacao.categoria %>").selected = true;
+  let optionStatus = document.getElementById("<%= solicitacao.status %>").selected = true;
+
+  let textAreaSolicitacao = document.getElementsByName("solicitacao")[0].value = "<%= solicitacao.solicitacao %>";
+  let textAreaResposta = document.getElementsByName("resposta")[0].value = "<%= solicitacao.resposta %>";
+  
+</script>
+
+</html>

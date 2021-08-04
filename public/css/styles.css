@@ -1,5 +1,6 @@
 body {
     background-color: #f5f6f8;
+    background-color: #eceff1;
     overflow-x: hidden;
     
 }
@@ -7,15 +8,18 @@ body {
 /*NAVBAR*/
 .cabecalho {
     width: 100%;
-    display: flex;
-    justify-content: space-around;
     position: relative;
-    align-items: center;
     border-bottom: 0.5px solid #ccc;
-    /*box-shadow: 0 0 5px 2px rgb(0 0 0 / 33%);*/
     padding: 10px;
     overflow-x: hidden;
-    
+}
+
+.cabecalho .container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .cabecalho img {
@@ -90,7 +94,6 @@ div.columns {
     margin-top: 30px;
     height: 80vh;
     overflow: auto;
-    align-items: center;
 }
 
 div.title {
@@ -100,7 +103,7 @@ div.title {
 
 }
 
-div.card {
+div.card a {
     width: 80%;
     display: flex;
     margin: 20px 0px;
@@ -110,27 +113,29 @@ div.card {
     transition: 0.3s;
 }
 
-div.card:hover {
+div.card a:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     cursor: pointer;
 
 }
 
-div.card>h4 {
+div.card a > h4 {
     padding-bottom: 10px;
+    color: #000;
 }
 
-div.card>p {
+div.card a > p {
     /*corta o texto que não cabe mais na caixa*/
-    text-overflow: ellipsis;
     overflow: hidden;
-    white-space: nowrap;
     font-size: 0.9rem;
     color: #6c757d;
     padding-bottom: 3px;
+    position: relative;
+    line-height: 1.2em;
+    max-height: 1.4em; /* aqui vc controla a altura da caixa de texto */
 }
 
-div.card>span {
+div.card a > span {
     font-size: 0.85rem;
     font-style: italic;
     color: #343a40;

@@ -1,0 +1,138 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto; 
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+.modal-content {
+  background-color: #f5f6f8;
+  padding: 15px;
+  border-radius: 4px;
+  width: 50%;
+  margin-bottom: 25px;
+}
+.header h2 {
+  font-size: 1.5em;
+
+}
+/*FOMULARIO*/
+
+div.modal div.modal-content div.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+div.modo{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin: 15px 0;
+  padding: 4px;
+}
+div.modo label{
+  padding: 5px 4px;
+  color: white;
+  font-size: 1em;
+  width: 5rem;
+  text-align: center;
+}
+
+div.modo input {
+  margin-left: 10px;
+}
+
+.urgent-modal{
+  background-color: #F76858;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+.moderate-modal{
+  background-color: #FFBB46;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+.concluded-modal{
+  background-color: #2ED47A;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+form{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  justify-content: space-between;
+}
+div.form-group{
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+  padding: 5px;
+}
+
+div.form-group.titulo {
+  width: 100%;
+}
+
+div.form-group.titulo input{
+  width: 49%;
+}
+
+div.form-button{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 10px;
+}
+div.form-button button, div.form-button a{
+  border: none;
+  outline: none;
+  padding: 10px;
+  width: 7rem;
+  background-color: #109CF1;
+  color: #f5f6f8;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 5px;
+}
+div.form-button a {
+  margin-left: 20px;
+  background-color: #F76858;
+}
+
+div.form-group input{
+  border: 1px solid #CCC;
+  border-radius: 8px;
+  padding: 6px 3px;
+}
+div.form-group select{
+  border: 1px solid #CCC;
+  border-radius: 8px;
+  padding: 6px 3px;
+}
+div.form-group textarea{
+  border: 1px solid #CCC;
+  border-radius: 8px;
+  padding: 6px 3px;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .modal-content {
+      padding: 0px;
+      width: 90%;
+      height: 80%;
+  }
+  div.form-group, .header h2, .close-btn{
+      padding-left: 15px;
+      padding-right: 15px;
+  }
+  .modal{
+      display: none;
+      justify-content: center;
+      align-items: center;
+  }
+  div.modo{
+      margin-left: 20px;
+  }
+  
+}
